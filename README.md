@@ -1,8 +1,17 @@
+> JavaGuide 的Star数量虽然比较多，但是它的价值和含金量一定是不能和 Dubbo、Nacos这些优秀的国产开源项目比的。希望国内可以出更多优秀的开源项目！
+>
+> 另外，希望大家对面试不要抱有侥幸的心理，打铁还需自身硬！  我希望这个文档是为你学习  Java 指明方向，而不是用来应付面试用的。加油！奥利给！
+
+**开始阅读之前必看** ：
+
+1. [完结撒花！JavaGuide面试突击版来啦！](./docs/javaguide面试突击版.md)
+2. [JavaGuide重大更新记录](./docs/update-history.md)
+
 更多原创内容和干货分享：
 
-1. 公众号 ： [JavaGuide](#公众号) （最新原创文章+免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源）
-2. B站：[Guide哥](https://space.bilibili.com/504390397) （各种干货视频和生活向视频，来个一键三连可好！）
-3. 知识星球 ：[JavaGuide读者圈](https://javaguide.cn/2019/01/02/chat/%E5%81%9A%E4%BA%86%E4%B8%80%E4%B8%AA%E5%BE%88%E4%B9%85%E6%B2%A1%E6%95%A2%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85/) (优惠卷永久有效！)
+1. [公众号—JavaGuide](#公众号) ： 最新原创文章+免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源）
+2. [微信](#联系我) ：如果需要和我交流的话可以加我私人微信(ps: 有问题的话也可以问，我会尽量回答大家，我很随和的，哈哈！另外，账号快加满了)
+3. [B站-Guide哥](https://space.bilibili.com/504390397)：（各种干货视频和生活向视频，来个一键三连可好！）
 
 Github用户如果访问速度缓慢的话，可以转移到[码云](https://gitee.com/SnailClimb/JavaGuide )查看，或者[在线阅读](https://snailclimb.gitee.io/javaguide )。
 
@@ -45,6 +54,7 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
     - [MySQL](#mysql)
     - [Redis](#redis)
 - [系统设计](#系统设计)
+    - [必知](#必知)
     - [常用框架](#常用框架)
         - [Spring](#spring)
         - [SpringBoot](#springboot)
@@ -55,39 +65,27 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
         - [RPC](#rpc)
         - [消息队列](#消息队列)
         - [API 网关](#api-网关)
-        - [唯一 id 生成](#唯一-id-生成)
-        - [ZooKeeper](#zookeeper)
+        - [分布式id](#分布式id)
+        - [分布式限流](#分布式限流)
+        - [分布式接口幂等性](#分布式接口幂等性)
         - [数据库扩展](#数据库扩展)
+        - [ZooKeeper](#zookeeper)
     - [大型网站架构](#大型网站架构)
         - [性能测试](#性能测试)
         - [高并发](#高并发)
         - [高可用](#高可用)
     - [微服务](#微服务)
         - [Spring Cloud](#spring-cloud)
-        - [配置中心](#配置中心)
-- [面试指南](#面试指南)
-    - [备战面试](#备战面试)
-    - [真实面试经历分析](#真实面试经历分析)
-    - [面经](#面经)
-- [Java学习常见问题汇总](#java学习常见问题汇总)
-- [工具](#工具)
+- [必会工具](#必会工具)
     - [Git](#git)
     - [Docker](#docker)
-    - [其他](#其他-1)
+- [面试指南](#面试指南)
+- [Java学习常见问题汇总](#java学习常见问题汇总)
 - [资源](#资源)
-    - [书单](#书单)
+    - [书单推荐](#书单推荐)
     - [实战项目推荐](#实战项目推荐)
-    - [Github](#github)
 - [待办](#待办)
 - [说明](#说明)
-    - [JavaGuide介绍](#javaguide介绍)
-    - [作者的其他开源项目推荐](#作者的其他开源项目推荐)
-    - [关于转载](#关于转载)
-    - [如何对该开源文档进行贡献](#如何对该开源文档进行贡献)
-    - [为什么要做这个开源文档？](#为什么要做这个开源文档)
-    - [投稿](#投稿)
-    - [联系我](#联系我)
-    - [公众号](#公众号)
 
 ## Java
 
@@ -103,7 +101,7 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
 **重要知识点详解：**
 
 1. [枚举](docs/java/basic/用好Java中的枚举真的没有那么简单.md) （很重要的一个数据结构，用好枚举真的没有那么简单！）
-2. [Java 常见关键字总结：final、static、this、super!](docs/java/basic/final、static、this、super.md)
+2. [Java 常见关键字总结：final、static、this、super!](docs/java/basic/final,static,this,super.md)
 3. [什么是反射机制?反射机制的应用场景有哪些?](docs/java/basic/reflection.md)
 
 **其他：**
@@ -146,7 +144,7 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
 
 1. **I/O** ：[BIO,NIO,AIO 总结 ](docs/java/BIO-NIO-AIO.md)
 2. **Java 8**  ：[Java 8 新特性总结](docs/java/What's%20New%20in%20JDK8/Java8Tutorial.md)、[Java 8 学习资源推荐](docs/java/What's%20New%20in%20JDK8/Java8教程推荐.md)、[Java8 forEach 指南](docs/java/What's%20New%20in%20JDK8/Java8foreach指南.md)
-3.  **[Java 编程规范以及优雅 Java 代码实践总结](docs/java/Java编程规范.md)**
+3.  Java编程规范：**[Java 编程规范以及优雅 Java 代码实践总结](docs/java/Java编程规范.md)** 、[告别编码5分钟，命名2小时！史上最全的Java命名规范参考！](docs/java/java-naming-conventions.md)
 4. 设计模式 :[设计模式系列文章](docs/system-design/设计模式.md)
 
 ## 网络
@@ -157,12 +155,12 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
 
 ## 操作系统
 
-操作系统相关概念总结
+[最硬核的操作系统常见面试题总结！](docs/operating-system/basis.md)
 
 ### Linux
 
-* [后端程序员必备的 Linux 基础知识](docs/operating-system/后端程序员必备的Linux基础知识.md)  
-* [Shell 编程入门](docs/operating-system/Shell.md) 
+* [后端程序员必备的 Linux 基础知识](docs/operating-system/linux.md)  
+* [Shell 编程入门](docs/operating-system/shell.md) 
 
 ## 数据结构与算法
 
@@ -173,12 +171,13 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
 
 ### 算法
 
-- [算法学习资源推荐](docs/dataStructures-algorithms/算法学习资源推荐.md)  
-- [几道常见的字符串算法题总结 ](docs/dataStructures-algorithms/几道常见的子符串算法题.md)
-- [几道常见的链表算法题总结 ](docs/dataStructures-algorithms/几道常见的链表算法题.md)   
-- [剑指offer部分编程题](docs/dataStructures-algorithms/剑指offer部分编程题.md)
-- [公司真题](docs/dataStructures-algorithms/公司真题.md)
-- [回溯算法经典案例之N皇后问题](docs/dataStructures-algorithms/Backtracking-NQueens.md)
+- [硬核的算法学习书籍+资源推荐](docs/dataStructures-algorithms/算法学习资源推荐.md)  
+- 常见算法问题总结：
+  - [几道常见的字符串算法题总结 ](docs/dataStructures-algorithms/几道常见的子符串算法题.md)
+  - [几道常见的链表算法题总结 ](docs/dataStructures-algorithms/几道常见的链表算法题.md)   
+  - [剑指offer部分编程题](docs/dataStructures-algorithms/剑指offer部分编程题.md)
+  - [公司真题](docs/dataStructures-algorithms/公司真题.md)
+  - [回溯算法经典案例之N皇后问题](docs/dataStructures-algorithms/Backtracking-NQueens.md)
 
 ## 数据库
 
@@ -188,18 +187,30 @@ Github用户如果访问速度缓慢的话，可以转移到[码云](https://git
 2. **[阿里巴巴开发手册数据库部分的一些最佳实践](docs/database/阿里巴巴开发手册数据库部分的一些最佳实践.md)**
 3. **[一千行MySQL学习笔记](docs/database/一千行MySQL命令.md)**
 4. [MySQL高性能优化规范建议](docs/database/MySQL高性能优化规范建议.md)
-5. [数据库索引总结](docs/database/MySQL%20Index.md)
+5. [数据库索引总结1](docs/database/MySQL%20Index.md)、[数据库索引总结2](docs/database/数据库索引.md)
 6. [事务隔离级别(图文详解)](docs/database/事务隔离级别(图文详解).md)
 7. [一条SQL语句在MySQL中如何执行的](docs/database/一条sql语句在mysql中如何执行的.md)
 
 ### Redis
 
-* [Redis 总结](docs/database/Redis/Redis.md)
-* [Redlock分布式锁](docs/database/Redis/Redlock分布式锁.md)
-* [如何做可靠的分布式锁，Redlock真的可行么](docs/database/Redis/如何做可靠的分布式锁，Redlock真的可行么.md)
-* [几种常见的 Redis 集群以及使用场景](docs/database/Redis/redis集群以及应用场景.md) 
+* [Redis 常见问题总结](docs/database/Redis/Redis.md)
+* **Redis 系列文章合集：**
+
+  1. [5种基本数据结构](docs/database/Redis/redis-collection/Redis(1)——5种基本数据结构.md)
+  2. [跳跃表](docs/database/Redis/redis-collection/Redis(2)——跳跃表.md)
+  3. [分布式锁深入探究](docs/database/Redis/redis-collection/Redis(3)——分布式锁深入探究.md) 、 [Redlock分布式锁](docs/database/Redis/Redlock分布式锁.md) 、[如何做可靠的分布式锁，Redlock真的可行么](docs/database/Redis/如何做可靠的分布式锁，Redlock真的可行么.md)
+  4. [神奇的HyperLoglog解决统计问题](docs/database/Redis/redis-collection/Reids(4)——神奇的HyperLoglog解决统计问题.md)
+  5. [亿级数据过滤和布隆过滤器](docs/database/Redis/redis-collection/Redis(5)——亿级数据过滤和布隆过滤器.md)
+  6. [GeoHash查找附近的人](docs/database/Redis/redis-collection/Redis(6)——GeoHash查找附近的人.md)
+  7. [持久化](docs/database/Redis/redis-collection/Redis(7)——持久化.md)
+  8. [发布订阅与Stream](docs/database/Redis/redis-collection/Redis(8)——发布订阅与Stream.md)
+  9. [史上最强【集群】入门实践教程](docs/database/Redis/redis-collection/Redis(9)——集群入门实践教程.md)
 
 ## 系统设计
+
+### 必知
+
+1. **[RestFul API 简明教程](docs/system-design/restful-api.md)**
 
 ### 常用框架
 
@@ -265,18 +276,25 @@ SSO(Single Sign On)即单点登录说的是用户登陆多个子系统的其中�
 **Kafka:**
 
 1. **[Kafka 入门+SpringBoot整合Kafka系列](https://github.com/Snailclimb/springboot-kafka)**
-2. [Kafka系统设计开篇-面试看这篇就够了](docs/system-design/data-communication/Kafka系统设计开篇-面试看这篇就够了.md)
+2. **[Kafka 常见面试题总结](docs/system-design/data-communication/kafka-inverview.md)**
 3. [【加餐】Kafka入门看这一篇就够了](docs/system-design/data-communication/Kafka入门看这一篇就够了.md)
 
 #### API 网关
 
 网关主要用于请求转发、安全认证、协议转换、容灾。
 
-- [浅析如何设计一个亿级网关(API Gateway)](docs/system-design/micro-service/API网关.md)
+1. [为什么要网关？你知道有哪些常见的网关系统？](docs/system-design/micro-service/api-gateway-intro.md)
+2. [如何设计一个亿级网关(API Gateway)？](docs/system-design/micro-service/API网关.md)
 
-#### 唯一 id 生成
+#### 分布式id
 
--  [分布式id生成方案总结](docs/system-design/micro-service/分布式id生成方案总结.md)
+1. [为什么要分布式 id ？分布式 id 生成方案有哪些？](docs/system-design/micro-service/分布式id生成方案总结.md)
+
+#### 分布式限流
+
+1. [限流算法有哪些？](docs/system-design/micro-service/limit-request.md)
+
+#### 分布式接口幂等性
 
 #### ZooKeeper
 
@@ -319,44 +337,7 @@ SSO(Single Sign On)即单点登录说的是用户登陆多个子系统的其中�
 
 - [ 大白话入门 Spring Cloud](docs/system-design/micro-service/spring-cloud.md)
 
-#### 配置中心
-
-待办......
-
-## 面试指南
-
-### 备战面试
-
-* **[【备战面试1】程序员的简历就该这样写](docs/essential-content-for-interview/PreparingForInterview/程序员的简历之道.md)**
-* **[【备战面试2】初出茅庐的程序员该如何准备面试？](docs/essential-content-for-interview/PreparingForInterview/interviewPrepare.md)**
-* **[【备战面试3】7个大部分程序员在面试前很关心的问题](docs/essential-content-for-interview/PreparingForInterview/JavaProgrammerNeedKnow.md)**
-* **[【备战面试4】Github上开源的Java面试/学习相关的仓库推荐](docs/essential-content-for-interview/PreparingForInterview/JavaInterviewLibrary.md)**
-* **[【备战面试5】如果面试官问你“你有什么问题问我吗？”时，你该如何回答](docs/essential-content-for-interview/PreparingForInterview/面试官-你有什么问题要问我.md)**
-* [【备战面试6】应届生面试最爱问的几道 Java 基础问题](docs/essential-content-for-interview/PreparingForInterview/应届生面试最爱问的几道Java基础问题.md)
-* **[【备战面试6】美团面试常见问题总结(附详解答案)](docs/essential-content-for-interview/PreparingForInterview/美团面试常见问题总结.md)**
-* **[【备战面试7】一些刁难的面试问题总结](https://xiaozhuanlan.com/topic/9056431872)**
-
-### 真实面试经历分析
-
-- **[我和阿里面试官的一次“邂逅”(附问题详解)](docs/essential-content-for-interview/real-interview-experience-analysis/alibaba-1.md)**
-
-### 面经
-
-- [5面阿里,终获offer(2018年秋招)](docs/essential-content-for-interview/BATJrealInterviewExperience/5面阿里,终获offer.md)
-- [蚂蚁金服2019实习生面经总结(已拿口头offer)](docs/essential-content-for-interview/BATJrealInterviewExperience/蚂蚁金服实习生面经总结(已拿口头offer).md)
-- [2019年蚂蚁金服、头条、拼多多的面试总结](docs/essential-content-for-interview/BATJrealInterviewExperience/2019alipay-pinduoduo-toutiao.md)
-- [Bigo的Java面试，我挂在了第三轮技术面上.........](docs/essential-content-for-interview/BATJrealInterviewExperience/bingo-interview.md)
-- [2020 字节跳动后端面经分享！已拿 offer!](docs/essential-content-for-interview/BATJrealInterviewExperience/2020-zijietiaodong.md)
-
-## Java学习常见问题汇总
-
-1. [Java学习路线和方法推荐](docs/questions/java-learning-path-and-methods.md)
-2. [Java培训四个月能学会吗？](docs/questions/java-training-4-month.md)
-3. [新手学习Java，有哪些Java相关的博客，专栏，和技术学习网站推荐？](docs/questions/java-learning-website-blog.md)
-4. [Java 还是大数据，你需要了解这些东西！](docs/questions/java-big-data)
-5. [Java 后台开发/大数据？你需要了解这些东西！](https://articles.zsxq.com/id_wto1iwd5g72o.html)（知识星球）
-
-## 工具
+## 必会工具
 
 ### Git
 
@@ -371,21 +352,44 @@ SSO(Single Sign On)即单点登录说的是用户登陆多个子系统的其中�
 
 - [阿里云服务器使用经验](docs/tools/阿里云服务器使用经验.md)
 
+## 面试指南
+
+> 这部分很多内容比如大厂面经、真实面经分析被移除，详见[完结撒花！JavaGuide面试突击版来啦！](./docs/javaguide面试突击版.md)。
+
+1. **[【备战面试1】程序员的简历就该这样写](docs/essential-content-for-interview/PreparingForInterview/程序员的简历之道.md)**
+2. **[【备战面试2】初出茅庐的程序员该如何准备面试？](docs/essential-content-for-interview/PreparingForInterview/interviewPrepare.md)**
+3. **[【备战面试3】7个大部分程序员在面试前很关心的问题](docs/essential-content-for-interview/PreparingForInterview/JavaProgrammerNeedKnow.md)**
+4. **[【备战面试4】Github上开源的Java面试/学习相关的仓库推荐](docs/essential-content-for-interview/PreparingForInterview/JavaInterviewLibrary.md)**
+5. **[【备战面试5】如果面试官问你“你有什么问题问我吗？”时，你该如何回答](docs/essential-content-for-interview/PreparingForInterview/面试官-你有什么问题要问我.md)**
+6. [【备战面试6】应届生面试最爱问的几道 Java 基础问题](docs/essential-content-for-interview/PreparingForInterview/应届生面试最爱问的几道Java基础问题.md)
+7. **[【备战面试6】美团面试常见问题总结(附详解答案)](docs/essential-content-for-interview/PreparingForInterview/美团面试常见问题总结.md)**
+8. **[【备战面试7】一些刁难的面试问题总结](https://xiaozhuanlan.com/topic/9056431872)**
+
+## Java学习常见问题汇总
+
+1. [Java学习路线和方法推荐](docs/questions/java-learning-path-and-methods.md)
+2. [Java培训四个月能学会吗？](docs/questions/java-training-4-month.md)
+3. [新手学习Java，有哪些Java相关的博客，专栏，和技术学习网站推荐？](docs/questions/java-learning-website-blog.md)
+4. [Java 还是大数据，你需要了解这些东西！](docs/questions/java-big-data)
+5. [Java 后台开发/大数据？你需要了解这些东西！](https://articles.zsxq.com/id_wto1iwd5g72o.html)（知识星球）
+
 ## 资源
 
-### 书单
+### 书单推荐
 
-- [Java程序员必备书单](docs/data/java-recommended-books.md)
+- [算法相关](docs/books/alogorithm.md)
+- **[Java程序员必备书单](docs/books/java.md)**
 
 ### 实战项目推荐
 
-- [Github 上热门的 Spring Boot 项目实战推荐](docs/data/spring-boot-practical-projects.md)
+- **[Java、SpringBoot实战项目推荐](https://github.com/Snailclimb/awesome-java#实战项目)**
 
 ### Github
 
+- [Github 上非常棒的 Java 开源项目集合](https://github.com/Snailclimb/awesome-java) 
 - [Github 上 Star 数最多的 10 个项目，看完之后很意外!](docs/tools/github/github-star-ranking.md)
 - [年末将至，值得你关注的16个Java 开源项目！](docs/github-trending/2019-12.md)
-- [Java 项目月榜单](docs/github-trending/JavaGithubTrending.md)
+- [Java 项目历史月榜单](docs/github-trending/JavaGithubTrending.md)
 
 ***
 
@@ -409,12 +413,6 @@ SSO(Single Sign On)即单点登录说的是用户登陆多个子系统的其中�
 Markdown 格式参考：[Github Markdown格式](https://guides.github.com/features/mastering-markdown/)，表情素材来自：[EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)。
 
 利用 docsify 生成文档部署在 Github pages: [docsify 官网介绍](https://docsify.js.org/#/)
-
-### 作者的其他开源项目推荐
-
-1. [springboot-guide](https://github.com/Snailclimb/springboot-guide) : 适合新手入门以及有经验的开发人员查阅的 Spring Boot 教程（业余时间维护中，欢迎一起维护）。
-2. [programmer-advancement](https://github.com/Snailclimb/programmer-advancement) : 我觉得技术人员应该有的一些好习惯！
-3. [spring-security-jwt-guide](https://github.com/Snailclimb/spring-security-jwt-guide) :从零入门 ！Spring Security With JWT（含权限验证）后端部分代码。
 
 ### 关于转载
 
